@@ -1,6 +1,6 @@
 package Chapter2_Monoids
 
-object MonoidLaws extends App {
+object MonoidLaws {
   def associativeLaw[A](x: A, y: A, z: A)
                        (implicit m: Monoid[A]): Boolean = {
     m.combine(x, m.combine(y, z)) ==

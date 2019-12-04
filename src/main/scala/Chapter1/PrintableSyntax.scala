@@ -1,8 +1,11 @@
 package Chapter1
 
 object PrintableSyntax {
+
   implicit class PrintableOps[A](value: A) {
-    //def format(implicit p: Printable[A]): String = p.format(value)
-    def print(implicit p: Printable[A]): Unit = Printable.print(value)
+    def format(implicit printable: Printable[A]): String = printable.format(value)
+
+    def print(implicit printable: Printable[A]): Unit = println(printable.format(value))
   }
+
 }

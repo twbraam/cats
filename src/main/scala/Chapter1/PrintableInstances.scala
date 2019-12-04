@@ -10,4 +10,13 @@ object PrintableInstances {
     new Printable[Int] {
       def format(value: Int): String = value.toString
     }
+
+  implicit val catPrinter = new Printable[Cat] {
+    def format(cat: Cat) = {
+    val name = Printable.format(cat.name)
+    val age = Printable.format(cat.age)
+    val color = Printable.format(cat.color)
+    s"$name is a $age year-old $color cat."
+    }
+  }
 }

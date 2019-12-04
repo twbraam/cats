@@ -5,6 +5,6 @@ trait Printable[A] {
 }
 
 object Printable {
-  def format[A](text: A)(implicit p: Printable[A]): String = p.format(text)
-  def print[A](text: A)(implicit p: Printable[A]): Unit = println(format(text))
+  def format[A](value: A)(implicit valuePrinter: Printable[A]) = valuePrinter.format(value)
+  def print[A](value: A)(implicit valuePrinter: Printable[A]) = println(valuePrinter.format(value))
 }
