@@ -21,7 +21,7 @@ object ReaderMonad{
 
     import cats.syntax.applicative._ // for pure
 
-  def checkLogin(userId: Int,bpassword: String): DbReader[Boolean] =
+  def checkLogin(userId: Int, password: String): DbReader[Boolean] =
     for {
       username <- findUsername(userId)
       passwordOk <- username.map { username => 

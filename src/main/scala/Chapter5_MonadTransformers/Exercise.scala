@@ -30,6 +30,8 @@ object Exercise {
     
   
   import scala.concurrent.duration._
+  import scala.concurrent.Await
+  
   def tacticalReport(ally1: String, ally2: String): String = {
     val stack = canSpecialMove(ally1, ally2).value 
     
